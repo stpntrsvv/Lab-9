@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link href="static/store.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/static/update.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>My Professional Experience</h1>
+    </header>
+
+    <main class="container">
+        <section class="experience-form">
+            <h2>Add Work Experience</h2>
+            <form>
+                <div class="form-group">
+                    <label for="company_name">Company name</label>
+                    <input type="text" name="company_name" id="company_name" placeholder="Enter company name">
+                </div>
+                <div class="form-group">
+                    <label for="term">Working term (months)</label>
+                    <input type="number" name="term" id="term" placeholder="Duration in months">
+                </div>
+                <button type="button" class="submit-btn" onClick="addCompany()">Add Experience</button>
+                <button type="button" class="submit-btn" onClick="clearExp()">Clear all</button>
+            </form>
+        </section>
+
+        <section class="experience-list">
+            <h2>Work History</h2>
+            <ul>
+                {% for company in companies_list %}
+                <li class="company-item">
+                    <div class="company-name">{{ company['company_name'] }}</div>
+                    <div class="company-term">{{ company['term'] }} months</div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
